@@ -47,19 +47,13 @@ function App() {
       setInterval(() => {
         for (let i = 0; i < 3; i++) {
           ctx.clearRect(
-            (Math.random() - 0.5) * 1800,
-            (Math.random() - 0.5) * 2000,
+            (Math.random() - 0.1) * 2000,
+            (Math.random() - 0.1) * 1200,
             100,
             200
           );
         }
       }, 10);
-
-      // setTimeout(() => {
-      //   ctx.fillStyle = "black";
-      //   ctx.moveTo(...f(t));
-      //   ctx.lineTo(...f(t + 1));
-      // });
     }
   }, []);
   return (
