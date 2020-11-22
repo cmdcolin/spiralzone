@@ -12,6 +12,8 @@ function App() {
   useEffect(() => {
     if (ref.current) {
       const ctx = ref.current.getContext("2d");
+      ctx.fillStyle = "#333";
+      ctx.fillRect(0, 0, 1800, 1000);
 
       function gen(colors, walk = [0.45, 0.4], initial = [0, 0]) {
         let pos = [...initial];
@@ -47,11 +49,12 @@ function App() {
 
       setInterval(() => {
         for (let i = 0; i < 3; i++) {
-          ctx.clearRect(
+          ctx.fillStyle = "#333";
+          ctx.fillRect(
             (Math.random() - 0.1) * 2000,
             (Math.random() - 0.1) * 1200,
-            100,
-            100
+            150,
+            150
           );
         }
       }, 10);
