@@ -1,16 +1,18 @@
-import { useRef, useEffect } from "react";
+<!doctype html><html lang="en"><head>
+  </head>
+
+  <body>
+    <canvas width=1800 height=1000 id="ref"/>
+  <script>
+
 
 //credit https://stackoverflow.com/questions/3417183/modulo-of-negative-numbers
 function wrap(i, i_max) {
   return ((i % i_max) + i_max) % i_max;
 }
-
 const rando = 20;
-function App() {
-  const ref = useRef();
-  useEffect(() => {
-    if (ref.current) {
-      const ctx = ref.current.getContext("2d");
+    const canvas = document.getElementById('ref')
+const ctx = canvas.getContext("2d");
       ctx.fillStyle = "#333";
       ctx.fillRect(0, 0, 1800, 1000);
 
@@ -69,13 +71,9 @@ function App() {
           );
         }
       }, 10);
-    }
-  }, []);
-  return (
-    <div className="App">
-      <canvas ref={ref} height={1000} width={1800} />
-    </div>
-  );
-}
+  </script>
 
-export default App;
+  </body>
+</html>
+
+
