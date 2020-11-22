@@ -1,5 +1,4 @@
 import { useRef, useEffect } from "react";
-import "./App.css";
 
 //credit https://stackoverflow.com/questions/3417183/modulo-of-negative-numbers
 function wrap(i, i_max) {
@@ -22,10 +21,22 @@ function App() {
         return () => {
           ctx.fillStyle = colors[ct % colors.length];
           ctx.fillRect(
-            pos[0] + 500 * Math.cos(ct / 1000) * Math.sin(t),
-            pos[1] + 500 * Math.cos(ct / 1000) * Math.cos(t),
-            Math.random() * 200 * Math.sin(ct / 100),
-            Math.random() * 200 * Math.sin(ct / 100)
+            pos[0] +
+              300 *
+                Math.pow(Math.cos(ct / (1000 * Math.sin(ct / 10000))), 2) *
+                Math.sin(t),
+            pos[1] +
+              300 *
+                Math.pow(Math.cos(ct / (1000 * Math.sin(ct / 10000))), 2) *
+                Math.cos(t),
+            Math.random() *
+              (200 + 30 * Math.sin(ct / 100)) *
+              Math.pow(Math.sin(ct / 100), 2) +
+              10,
+            Math.random() *
+              (200 + 30 * Math.sin(ct / 100)) *
+              Math.pow(Math.sin(ct / 100), 2) +
+              10
           );
           pos[0] = wrap(pos[0] + rando * (Math.random() - walk[0]), 1800);
           pos[1] = wrap(pos[1] + rando * (Math.random() - walk[1]), 1000);
